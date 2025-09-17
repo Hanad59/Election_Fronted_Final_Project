@@ -50,7 +50,7 @@ function VoterProfile() {
         }
 
         const response = await axios.get(
-          `http://localhost:5000/api/profile/${userId}`
+          `https://election-backend-final-project.onrender.com/api/profile/${userId}`
         );
 
         if (response.data.success) {

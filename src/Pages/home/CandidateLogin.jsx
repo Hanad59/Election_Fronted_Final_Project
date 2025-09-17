@@ -20,7 +20,7 @@ function CandidateLogin() {
         throw new Error("Please fill in all fields");
       }
 
-      const response = await axios.post("http://localhost:5000/candidates/login", {
+      const response = await axios.post("https://election-backend-final-project.onrender.com/candidates/login", {
         email,
         password
       });

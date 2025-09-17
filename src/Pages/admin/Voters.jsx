@@ -28,7 +28,7 @@ function Voters() {
     const fetchVoters = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/admin/users');
+        const response = await axios.get('https://election-backend-final-project.onrender.com/admin/users');
         
         if (response.data.success) {
           const votedUsers = response.data.users.filter(user => 

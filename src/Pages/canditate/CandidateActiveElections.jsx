@@ -53,7 +53,7 @@ function CandidateActiveElections() {
         }
 
         const candidateResponse = await axios.get(
-          `http://localhost:5000/profile/candidate/${candidateId}`
+          `https://election-backend-final-project.onrender.com/profile/candidate/${candidateId}`
         );
         
         const electionId = candidateResponse.data.candidate?.electionId?._id;
@@ -62,11 +62,11 @@ function CandidateActiveElections() {
         }
 
         const electionResponse = await axios.get(
-          `http://localhost:5000/elections/${electionId}`
+          `https://election-backend-final-project.onrender.com/elections/${electionId}`
         );
 
         const candidatesResponse = await axios.get(
-          `http://localhost:5000/candidates/${electionId}`
+          `https://election-backend-final-project.onrender.com/candidates/${electionId}`
         );
 
         const hasVoted = candidateResponse.data.candidate?.votesCast?.some(
@@ -105,7 +105,7 @@ function CandidateActiveElections() {
       const candidateId = localStorage.getItem('candidateId');
 
       const response = await axios.post(
-        `http://localhost:5000/api/candidates/vote`,
+        `https://election-backend-final-project.onrender.com/api/candidates/vote`,
         {
           voterId: candidateId,
           candidateId: selectedCandidate,

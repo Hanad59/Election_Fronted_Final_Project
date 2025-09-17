@@ -34,7 +34,7 @@ function Contact() {
     setSubmitMessage({ text: "", isError: false });
 
     try {
-      await axios.post('http://localhost:5000/complaints', {
+      await axios.post('https://election-backend-final-project.onrender.com/complaints', {
         name: formData.name,
         email: formData.email,
         complaint: formData.message

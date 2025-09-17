@@ -66,8 +66,7 @@ const ActiveElection = () => {
     setVotingInProgress(prev => ({ ...prev, [candidateId]: true }));
 
     try {
-      const response = await axios.post(
-        `http://localhost:5000/candidates/vote/${candidateId}`,
+      const response = await axios.post(`https://election-backend-final-project.onrender.com/candidates/vote/${candidateId}`,
         { 
           userId: userData._id,
           electionId
@@ -127,7 +126,7 @@ const ActiveElection = () => {
       setError(null);
       
       // Get active elections
-      const electionsRes = await axios.get('http://localhost:5000/elections/active', {
+      const electionsRes = await axios.get('https://election-backend-final-project.onrender.com/elections/active', {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -139,7 +138,7 @@ const ActiveElection = () => {
       await Promise.all(electionsData.map(async (election) => {
         try {
           const candidatesRes = await axios.get(
-            `http://localhost:5000/candidates/${election._id}`,
+            `https://election-backend-final-project.onrender.com/candidates/${election._id}`,
             {
               headers: {
                 "Authorization": `Bearer ${token}`
